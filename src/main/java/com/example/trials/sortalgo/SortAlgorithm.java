@@ -1,6 +1,8 @@
 package com.example.trials.sortalgo;
 
-public interface SortAlgorithm {
+public interface SortAlgorithm<T extends  Comparable<T>> {
 
-    public void typeOfsort(int[] arr,int n);
+    public void typeOfsort(T[] arr,int n);
+
+    // Driver program
 }

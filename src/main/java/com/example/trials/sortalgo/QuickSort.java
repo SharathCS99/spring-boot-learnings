@@ -1,7 +1,7 @@
 package com.example.trials.sortalgo;
 
 // Java program for implementation of QuickSort
-public class QuickSort implements SortAlgorithm
+public class QuickSort<T extends Comparable<T>> implements SortAlgorithm<T>
 {
     /* This function takes last element as pivot,
     places the pivot element at its correct
@@ -9,27 +9,27 @@ public class QuickSort implements SortAlgorithm
     smaller (smaller than pivot) to left of
     pivot and all greater elements to right
     of pivot */
-    int partition(int arr[], int low, int high)
+    int partition(T arr[], int low, int high)
     {
-        int pivot = arr[high];
+        T pivot = arr[high];
         int i = (low-1); // index of smaller element
         for (int j=low; j<high; j++)
         {
             // If current element is smaller than or
             // equal to pivot
-            if (arr[j] <= pivot)
+            if (arr[j].compareTo(pivot)<=0)
             {
                 i++;
 
                 // swap arr[i] and arr[j]
-                int temp = arr[i];
+                T temp = arr[i];
                 arr[i] = arr[j];
                 arr[j] = temp;
             }
         }
 
         // swap arr[i+1] and arr[high] (or pivot)
-        int temp = arr[i+1];
+        T temp = arr[i+1];
         arr[i+1] = arr[high];
         arr[high] = temp;
 
@@ -41,7 +41,7 @@ public class QuickSort implements SortAlgorithm
     arr[] --> Array to be sorted,
     low --> Starting index,
     high --> Ending index */
-    void sort(int arr[], int low, int high)
+    void sort(T[] arr, int low, int high)
     {
         if (low < high)
         {
@@ -57,7 +57,7 @@ public class QuickSort implements SortAlgorithm
     }
 
     /* A utility function to print array of size n */
-    static void printArray(int arr[])
+     void printArray(T arr[])
     {
         int n = arr.length;
         for (int i=0; i<n; ++i)
@@ -67,7 +67,7 @@ public class QuickSort implements SortAlgorithm
 
     // Driver program
     @Override
-    public void typeOfsort(int[] arr,int n)
+    public void typeOfsort(T[] arr,int n)
     {
 
         QuickSort ob = new QuickSort();

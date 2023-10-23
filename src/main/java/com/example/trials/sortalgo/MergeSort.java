@@ -1,15 +1,16 @@
 package com.example.trials.sortalgo;
 
-public class MergeSort implements SortAlgorithm {
+public class MergeSort<T extends Comparable<T>> implements SortAlgorithm<T> {
+
     @Override
-    public void typeOfsort(int[] a, int n) {
+    public void typeOfsort(T[] a, int n) {
         System.out.println("Implementing merge sort");
         if (n < 2) {
             return;
         }
         int mid = n / 2;
-        int[] l = new int[mid];
-        int[] r = new int[n - mid];
+        T[] l = (T[]) new Comparable[mid];
+        T[] r = (T[]) new Comparable[n - mid];
 
         for (int i = 0; i < mid; i++) {
             l[i] = a[i];
@@ -22,15 +23,13 @@ public class MergeSort implements SortAlgorithm {
 
         merge(a, l, r, mid, n - mid);
     }
-    public static void merge(
-            int[] a, int[] l, int[] r, int left, int right) {
 
+    private void merge(T[] a, T[] l, T[] r, int left, int right) {
         int i = 0, j = 0, k = 0;
         while (i < left && j < right) {
-            if (l[i] <= r[j]) {
+            if (l[i].compareTo(r[j]) <= 0) {
                 a[k++] = l[i++];
-            }
-            else {
+            } else {
                 a[k++] = r[j++];
             }
         }
