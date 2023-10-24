@@ -1,6 +1,9 @@
 package com.example.trials.sortalgo;
 
+import org.springframework.stereotype.Component;
+
 // Java program for implementation of QuickSort
+@Component
 public class QuickSort<T extends Comparable<T>> implements SortAlgorithm<T>
 {
     /* This function takes last element as pivot,
@@ -67,7 +70,7 @@ public class QuickSort<T extends Comparable<T>> implements SortAlgorithm<T>
 
     // Driver program
     @Override
-    public void typeOfsort(T[] arr,int n)
+    public void typeOfsort(T[] arr, int n)
     {
 
         QuickSort ob = new QuickSort();

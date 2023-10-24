@@ -1,4 +1,4 @@
-package com.example.trials;
+package com.example.trials.scopes;
 
 import com.example.trials.search.BinarySearch;
 import com.example.trials.sortalgo.MergeSort;
@@ -12,10 +12,7 @@ public class TrialsApplication {
 
 	public static void main(String[] args) {
 		ApplicationContext applicationContext=SpringApplication.run(TrialsApplication.class, args);
-		BinarySearch bs=applicationContext.getBean(BinarySearch.class);
-		BinarySearch bs1=applicationContext.getBean(BinarySearch.class);
-		System.out.println(bs+" "+bs1);
-		System.out.println(bs.search((new Comparable[]{4, 3, 21, 1, 2, 0}),1,5));
+
 
 	}
 

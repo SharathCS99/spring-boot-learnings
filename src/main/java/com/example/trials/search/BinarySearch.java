@@ -2,20 +2,21 @@ package com.example.trials.search;
 
 import com.example.trials.sortalgo.MergeSort;
 import com.example.trials.sortalgo.SortAlgorithm;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.config.ConfigurableBeanFactory;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
 
+@Component
+@Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
 public class BinarySearch<T extends Comparable<T>> {
 
-    SortAlgorithm sortAlgorithm;
-
-    public BinarySearch(SortAlgorithm sortAlgorithm)
-    {
-        super();
-        this.sortAlgorithm=sortAlgorithm;
-    }
+    @Autowired
+    SortAlgorithm quickSort;
     public int search(T[] arr,T key,int n)
     {
         // this particular sort is using merge sort.
-        sortAlgorithm.typeOfsort(arr,n);
+        quickSort.typeOfsort(arr,n);
         int lo=0;
         int high=n-1;
         while(lo<high)

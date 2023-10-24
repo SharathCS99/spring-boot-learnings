@@ -1,5 +1,9 @@
 package com.example.trials.sortalgo;
 
+import org.springframework.context.annotation.Primary;
+import org.springframework.stereotype.Component;
+
+@Component
 public class MergeSort<T extends Comparable<T>> implements SortAlgorithm<T> {
 
     @Override
